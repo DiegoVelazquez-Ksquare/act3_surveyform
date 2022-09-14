@@ -7,62 +7,233 @@
     <title>Document</title>
 </head>
 <style>
-    form{
-        text-align: center;
+    body{
+        background-color: #e5e5f7;
+        opacity: 0.8;
+        background-image:  repeating-linear-gradient(45deg, rgb(18, 205, 165) 25%, 
+        transparent 25%, transparent 75%, rgb(18, 205, 165)75%, rgb(18, 205, 165)), 
+        repeating-linear-gradient(45deg, rgb(18, 205, 165) 25%, #e5e5f7 25%, #e5e5f7 75%, 
+        rgb(18, 205, 165)75%, rgb(18, 205, 165));
+        background-position: 0 0, 10px 10px;
+        background-size: 20px 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
-    
+    form{
+        
+        text-align: center;
+        background-color: white;
+        box-sizing: border-box;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 45px;
+    }
+    header{
+        text-align:center;
+      color:white;
+      background-color: rgb(0, 100, 139);
+      border:8px solid rgb(158, 157, 155);
+      border-radius:15%;
+      height: 100px;
+      font-family: "Monaco", "Courier New", monospace;
+      box-sizing: border-box;
+    }
+    h1{text-align: center;
+        -webkit-text-stroke: 2px black;}
+    label{text-align: center;}
+    .question{
+        color:white;
+      background-color: rgb(240, 134, 27);
+      margin-bottom:40px;
+      margin-top: 20px;
+    }
+    .comment-label{
+        color:white;
+      background-color: rgba(77, 27, 240, 0.348);
+      border:3px solid rgb(197, 31, 169);
+      border-radius:15%;
+      margin-bottom:40px;
+      margin-top: 20px;
+    }
+    input{
+        text-align: justify;
+    }
+    .option{
+        margin-bottom:20px;
+      margin-top: 20px;
+    }
+    div{
+        text-align: justify;
+        padding: 20px;
+    }
+
+    .switchBtn {
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 34px;
+    }
+    .switchBtn input {display:none;}
+        .slide {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    padding: 8px;
+    color: #fff;
+    }
+    .slide:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 78px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    }
+    input:checked + .slide {
+    background-color: #8CE196;
+    padding-left: 40px;
+    }
+    input:focus + .slide {
+    box-shadow: 0 0 1px #01aeed;
+    }
+    input:checked + .slide:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    left: -20px;
+    }
+    .slide.round {
+    border-radius: 34px;
+    }
+    .slide.round:before {
+    border-radius: 50%;
+    }
 </style>
 <body>
 
+    <header>
+        <h1>Video Games</h1>
+    </header>
+    <article>
+        
+    </article>
     <form>
      
-        <div class ="form-element">
-            <label class="full-name"for ="full-name">Full name </label>
+        <div class ="form-question">
+            <label class="question" for ="full-name">Full name </label><br>
             <input type = "text" name = "fullName" id="full-name">
         </div>
-        <div class ="form-element">
-            <label for ="email">E-mail </label>
+        <div class ="form-question">
+            <label class="question" for ="email">E-mail </label><br>
             <input type = "email" name = "email" id="email">
         </div>
-        <div class ="form-element">
-            <label for ="age">How old are you? </label>
+        <div class ="form-question">
+            <label class="question" for ="age">How old are you? </label><br>
             <input type = "number" name = "age" id="age">
         </div>
-        <div class ="form-element">
-           <label for="select-for-children">Amount of Children</label>
+        <div class ="form-question">
+           <label class="question" for="select-for-children">How many videogame titles do you own?</label><br>
             <select name="amountOfChildren" id="select-for-children">
           
-            <option value"">Select an option!</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4 or more</option>
+            <option value"0">Select an option!</option>
+            <option value="0">0-10</option>
+            <option value="0">10-20</option>
+            <option value="0">20-30</option>
+            <option value="0">More</option>
         </select>
         </div>
         <div class ="form-element">
-            <label for="w3review">Review of W3Schools:</label><br>
-            <textarea id="w3review" name="w3review" rows="4" cols="50">
-            At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+            <label class="question">Which platform do you use to play videogames?</label><br>
+            <input class="option" type="radio" id="pc" name="fav_platform" value="pc">
+            <label for="pc">PC  </label>
+
+            <input class="option" type="radio" id="console" name="fav_platform" value="console">
+            <label for="console">Console  </label>
+
+            <input class="option" type="radio" id="smartphone" name="fav_platform" value="smartphone">
+            <label for="smartphone">Smartphone</label>
+        </div>
+        <div class ="form-element">
+            <label class="question">Which of these genres do you prefer?</label><br>
+            <input class="option"  type="radio" id="fps" name="fav_genre" value="fpsL">
+            <label for="fps">FPS  </label>
+
+            <input  class="option" type="radio" id="rpg" name="fav_genre" value="rpg">
+            <label for="rpg">RPG  </label>
+
+            <input class="option" type="radio" id="platform" name="fav_genre" value="platform">
+            <label for="platform">Platform</label>
+
+            <input class="option" type="radio" id="sports" name="fav_genre" value="sports">
+            <label for="sports">Sports</label>
+            
+            <input class="option" type="radio" id="racing" name="fav_genre" value="racing">
+            <label for="racing">Racing</label>
+        </div>
+        <div class ="form-element">
+            <label class="question">Which videogame console brand suits you the best?</label><br>
+            <input class="option" type="radio" id="microsoft" name="fav_brand" value="microsoft">
+            <label for="microsoft">Microsoft  </label>
+
+            <input class="option" type="radio" id="sony" name="fav_brand" value="sony">
+            <label for="sony">Sony </label>
+
+            <input class="option" type="radio" id="nintendo" name="brand" value="nintendo">
+            <label for="nintendo">Nintendo </label>
+
+            <input class="option" type="radio" id="valve" name="brand" value="valve">
+            <label for="valve">Valve </label>
+        </div>
+        <div class ="form-element">
+            <label class="question">Which aspect is more importan in a videogame for you?</label><br>
+            <input class="option" type="radio" id="ost" name="fav_language" value="ost">
+            <label for="ost">OST </label>
+
+            <input class="option" type="radio" id="picture" name="fav_language" value="picture">
+            <label for="picture">Picture  </label>
+
+            <input class="option" type="radio" id="history" name="fav_language" value="history">
+            <label for="history">History</label>
+
+            <input class="option" type="radio" id="playability" name="fav_language" value="playability">
+            <label for="playability">Playability</label>
+        </div>
+        <div class ="form-element">
+            <label class="question">Which input device do you prefer in a console?</label><br>
+            <input class="option" type="radio" id="touch" name="fav_language" value="touch">
+            <label for="touch">Touch Screen </label>
+
+            <input class="option" type="radio" id="controller" name="fav_language" value="controller">
+            <label for="controller">Controller </label>
+
+            <input class="option" type="radio" id="mouse" name="fav_language" value="mouse">
+            <label for="mouse">Mouse and Keyboard</label>
+        </div>
+        <div class ="form-element">
+            <label class="comment-label" for="comments">Comments about the survey:</label><br>
+            <textarea id="comments" name="comments" rows="4" cols="50">
             </textarea>
         </div>
         <div class ="form-element">
-            <input type="radio" id="html" name="fav_language" value="HTML">
-            <label for="html">HTML</label><br>
-
-            <input type="radio" id="css" name="fav_language" value="CSS">
-            <label for="css">CSS</label><br>
-
-            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-            <label for="javascript">JavaScript</label>
-        </div>
-        <div class ="form-element">
+            <label for="select-for-children">Do you wish to keep receiving this kind of surveys?</label><br>
             <label>
-            <input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer checkbox</label><br>
-
-            <input type="checkbox" id="cbox2" value="second_checkbox"> 
-            <label for="cbox2">Este es mi segundo checkbox</label>
+            
+            <label class="switchBtn">
+                <input type="checkbox">
+                <div class="slide round">Yes</div>
+            </label>
         </div>
     </form>
+
+
 
 </body>
 </html>
